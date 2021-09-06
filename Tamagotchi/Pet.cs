@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Tamagotchi
 {
-    public class Creature
+    public class Pet
     {
         private int hunger;
 

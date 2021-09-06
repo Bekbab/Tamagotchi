@@ -7,16 +7,45 @@ namespace Tamagotchi
     public class Creature
     {
         private int hunger;
+
         private int boredom;
+
         private List<string> words = new List<string>();
+
+        private bool isAlive;
 
         private Random generator = new Random();
 
         public string name;
 
+        public void Feed()
+        {
 
+        }
 
+        public void Hi()
+        {
 
+        }
 
+        public void Teach(string words)
+        {
+
+        }
+
+        public void PrintStats()
+        {
+
+        }
+
+        public bool GetAlive()
+        {
+            return isAlive;
+        }
+
+        private void ReduceBoredom()
+        {
+
+        }
     }
 }

@@ -6,7 +6,21 @@ namespace Tamagotchi
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Pet p1 = new Pet();
+            Console.WriteLine("Name your pet.");
+            p1.name = Console.ReadLine();
+            Console.WriteLine("You have chosen the name " + p1.name + " for your pet.");
+
+
+            while (p1.GetAlive() == true)
+            {
+                p1.Tick();
+                p1.GetAlive();
+                p1.PrintStats();
+                p1.Act();
+
+            }
+            Console.ReadLine();
         }
     }
 }

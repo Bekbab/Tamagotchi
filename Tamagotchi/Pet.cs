@@ -21,7 +21,7 @@ namespace Tamagotchi
         private string state;
 
 
-        public void Feed()
+        public void Feed() //Feed your pet
         {
             hunger -= 5;
 
@@ -35,15 +35,16 @@ namespace Tamagotchi
 
         }
 
-        public void Greet() //Fix this
-        {
+        public void Greet() //Greet your pet
+        {                   //Reduces boredom and prints out a randomised response from words you have taught it
+            ReduceBoredom();
             Console.WriteLine("Hello " + name + "!");
             Console.WriteLine();
             Console.WriteLine(words[generator.Next(words.Count)]);
         }
 
-        public void CheckState()
-        {
+        public void CheckState() //Check which of the 5 different "states" your pet is in
+        {                        //ranging from happy to dying
             if (hunger > 7 || boredom > 7)
             {
                 state = " dying.";
@@ -66,7 +67,7 @@ namespace Tamagotchi
             }
         }
 
-        public void Teach(string word)
+        public void Teach(string word) //Teaach your pet a new word, it can use this word when you greet it
         {
             words.Add(word);
             ReduceBoredom();

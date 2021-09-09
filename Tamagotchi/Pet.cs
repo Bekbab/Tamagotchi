@@ -25,41 +25,44 @@ namespace Tamagotchi
         {
             hunger -= 5;
 
-            Console.WriteLine("You feed" + name);
+            Console.WriteLine("You feed " + name);
             if (hunger < 0)
             {
                 hunger = 0;
+                Console.WriteLine(name + " is full, they can't eat another bite!");
             }
 
-            Console.WriteLine(name + " is full, they can't eat another bite!");
+
         }
 
-        public void Greet()
+        public void Greet() //Fix this
         {
-
+            Console.WriteLine("Hello " + name + "!");
+            Console.WriteLine();
+            Console.WriteLine(words[generator.Next(words.Count)]);
         }
 
         public void CheckState()
         {
             if (hunger > 7 || boredom > 7)
             {
-                state = "dying.";
+                state = " dying.";
             }
             else if (hunger > 4 && boredom > 4)
             {
-                state = "hungry and bored";
+                state = " hungry and bored";
             }
             else if (hunger > 4)
             {
-                state = "hungry.";
+                state = " hungry.";
             }
             else if (boredom > 4)
             {
-                state = "bored.";
+                state = " bored.";
             }
             else
             {
-                state = "happy!";
+                state = " happy!";
             }
         }
 
@@ -67,7 +70,7 @@ namespace Tamagotchi
         {
             words.Add(word);
             ReduceBoredom();
-            Console.WriteLine(name + "learned to say" + word);
+            Console.WriteLine(name + " learned to say " + word + ".");
         }
 
         public void Tick()
@@ -83,26 +86,22 @@ namespace Tamagotchi
 
                 Console.WriteLine("Hunger: " + hunger);
                 Console.WriteLine("boredom: " + boredom);
-
-                if (hunger > 10)
-                {
-                    Console.WriteLine(name + " is " + state);
-                }
-
+                Console.WriteLine();
+                Console.WriteLine(name + " is " + state);
             }
             else
             {
                 if (hunger > 10 && boredom > 10)
                 {
-                    Console.WriteLine(name + " died hungry and bored");
+                    Console.WriteLine(name + " died hungry and bored.");
                 }
                 else if (hunger > 10)
                 {
-                    Console.WriteLine(name + " starved to death");
+                    Console.WriteLine(name + " starved to death.");
                 }
                 else if (boredom > 10)
                 {
-                    Console.WriteLine(name + " died of boredom");
+                    Console.WriteLine(name + " died of boredom.");
                 }
             }
             Console.ReadLine();
@@ -144,7 +143,7 @@ namespace Tamagotchi
 
                 else if (action == "teach")
                 {
-                    Console.WriteLine("What word do you wish to teach " + name);
+                    Console.WriteLine("What word do you wish to teach " + name + "?");
                     Teach(Console.ReadLine());
                     acted = true;
                 }
@@ -156,7 +155,7 @@ namespace Tamagotchi
                 }
                 else if (action == "nothing")
                 {
-                    Console.WriteLine("You do nothing");
+                    Console.WriteLine("You do nothing.");
                     acted = true;
                 }
             }

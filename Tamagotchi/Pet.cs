@@ -81,6 +81,7 @@ namespace Tamagotchi
         }
 
         public void PrintStats()
+
         {
             if (GetAlive() == true)
             {
@@ -128,37 +129,41 @@ namespace Tamagotchi
 
         public void Act()
         {
-            bool acted = false;
-            Console.WriteLine("What do you want to do? feed / teach / greet / nothing");
-
-            while (acted == false)
+            if (GetAlive() == true)
             {
+                bool acted = false;
+                Console.WriteLine("What do you want to do? feed / teach / greet / nothing");
 
-                string action = Console.ReadLine();
-
-                if (action == "feed")
+                while (acted == false)
                 {
-                    Feed();
-                    acted = true;
+
+                    string action = Console.ReadLine();
+
+                    if (action == "feed")
+                    {
+                        Feed();
+                        acted = true;
+                    }
+
+                    else if (action == "teach")
+                    {
+                        Console.WriteLine("What word do you wish to teach " + name + "?");
+                        Teach(Console.ReadLine());
+                        acted = true;
+                    }
+
+                    else if (action == "greet")
+                    {
+                        Greet();
+                        acted = true;
+                    }
+                    else if (action == "nothing")
+                    {
+                        Console.WriteLine("You do nothing.");
+                        acted = true;
+                    }
                 }
 
-                else if (action == "teach")
-                {
-                    Console.WriteLine("What word do you wish to teach " + name + "?");
-                    Teach(Console.ReadLine());
-                    acted = true;
-                }
-
-                else if (action == "greet")
-                {
-                    Greet();
-                    acted = true;
-                }
-                else if (action == "nothing")
-                {
-                    Console.WriteLine("You do nothing.");
-                    acted = true;
-                }
             }
             Console.ReadLine();
         }
